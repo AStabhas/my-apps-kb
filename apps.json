@@ -1,0 +1,297 @@
+{
+  "version": "1.0",
+  "apps": {
+    "library/nginx": {
+      "description": "Nginx is a high-performance web server and reverse proxy.",
+      "quick_start": "Visit the URL; mount your site content to serve your app.",
+      "docs": "https://nginx.org/en/docs/",
+      "tags": ["web","proxy"]
+    },
+    "library/httpd": {
+      "description": "Apache HTTP Server is a robust, extensible web server.",
+      "quick_start": "Visit the URL; mount /usr/local/apache2/htdocs/ with your content.",
+      "docs": "https://httpd.apache.org/docs/",
+      "tags": ["web","proxy"]
+    },
+    "caddy": {
+      "description": "Caddy is an easy, production-ready web server with automatic HTTPS.",
+      "quick_start": "Visit the URL; provide a Caddyfile for routing and TLS.",
+      "docs": "https://caddyserver.com/docs/",
+      "tags": ["web","proxy","tls"]
+    },
+    "traefik": {
+      "description": "Traefik is a cloud-native edge router and reverse proxy.",
+      "quick_start": "Expose it and declare routers/services; see dashboard with --api/dashboard.",
+      "docs": "https://doc.traefik.io/",
+      "tags": ["proxy","ingress","edge"]
+    },
+    "jc21/nginx-proxy-manager": {
+      "description": "A web UI for managing Nginx reverse proxy hosts and SSL.",
+      "quick_start": "Open UI, login, add hosts and certificates.",
+      "docs": "https://nginxproxymanager.com/guide/",
+      "tags": ["proxy","ssl","ui"]
+    },
+
+    "grafana/grafana": {
+      "description": "Grafana is a visualization and analytics platform for metrics and logs.",
+      "credentials": {"username": "admin", "password": "admin"},
+      "quick_start": "Open the URL, login with admin/admin on first run, add a data source, create a dashboard.",
+      "docs": "https://grafana.com/docs/",
+      "tags": ["monitoring","dashboards"]
+    },
+    "prom/prometheus": {
+      "description": "Prometheus collects and queries time-series metrics.",
+      "quick_start": "Open /graph to run metric queries; /alerts shows alerting rules.",
+      "docs": "https://prometheus.io/docs/",
+      "tags": ["monitoring","metrics"]
+    },
+    "prom/alertmanager": {
+      "description": "Alertmanager handles alerts sent by Prometheus.",
+      "quick_start": "Expose it and configure routes/receivers via alertmanager.yml.",
+      "docs": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+      "tags": ["monitoring","alerts"]
+    },
+    "prom/node-exporter": {
+      "description": "Node Exporter exposes host hardware and OS metrics.",
+      "quick_start": "Run with host mounts or Docker metrics; scrape via Prometheus.",
+      "docs": "https://prometheus.io/docs/guides/node-exporter/",
+      "tags": ["monitoring","exporter"]
+    },
+    "grafana/loki": {
+      "description": "Loki is a cost-effective, Prometheus-inspired log aggregation system.",
+      "quick_start": "Run Loki and promtail; configure Grafana to read from Loki.",
+      "docs": "https://grafana.com/docs/loki/latest/",
+      "tags": ["logging"]
+    },
+    "grafana/promtail": {
+      "description": "Promtail ships logs to Loki.",
+      "quick_start": "Run with a config file to scrape containers/paths and send to Loki.",
+      "docs": "https://grafana.com/docs/loki/latest/send-data/promtail/",
+      "tags": ["logging","agents"]
+    },
+    "grafana/tempo": {
+      "description": "Tempo is a distributed tracing backend.",
+      "quick_start": "Run Tempo and configure tracing SDKs/collectors to push spans.",
+      "docs": "https://grafana.com/docs/tempo/latest/",
+      "tags": ["tracing"]
+    },
+    "jaegertracing/all-in-one": {
+      "description": "Jaeger all-in-one (collector, query, UI) for distributed tracing demos.",
+      "quick_start": "Expose query UI and point clients/collectors at the collector endpoint.",
+      "docs": "https://www.jaegertracing.io/docs/",
+      "tags": ["tracing"]
+    },
+
+    "rabbitmq": {
+      "description": "RabbitMQ is a lightweight message broker supporting AMQP and more.",
+      "credentials": {"username": "guest", "password": "guest"},
+      "quick_start": "Expose 15672 for the Management UI; create a queue and start publishing/consuming.",
+      "docs": "https://www.rabbitmq.com/documentation.html",
+      "tags": ["messaging","broker"]
+    },
+    "nats": {
+      "description": "NATS is a high-performance messaging system for cloud-native apps.",
+      "quick_start": "Expose 4222 for clients; 8222 serves a simple monitoring UI if enabled.",
+      "docs": "https://docs.nats.io/",
+      "tags": ["messaging","broker"]
+    },
+    "eclipse-mosquitto": {
+      "description": "Eclipse Mosquitto is a lightweight MQTT broker.",
+      "quick_start": "Expose 1883 (MQTT); 9001 for WebSockets if configured.",
+      "docs": "https://mosquitto.org/documentation/",
+      "tags": ["messaging","mqtt"]
+    },
+    "bitnami/kafka": {
+      "description": "Apache Kafka is a distributed event streaming platform.",
+      "quick_start": "Run Zookeeper or KRaft, expose listener ports, create topics and produce/consume.",
+      "docs": "https://kafka.apache.org/documentation/",
+      "tags": ["streaming","messaging"]
+    },
+    "bitnami/zookeeper": {
+      "description": "Zookeeper is a centralized service for maintaining configuration and naming.",
+      "quick_start": "Run alongside Kafka or other systems needing coordination.",
+      "docs": "https://zookeeper.apache.org/doc/",
+      "tags": ["coordination"]
+    },
+
+    "library/postgres": {
+      "description": "PostgreSQL is a powerful open-source relational database.",
+      "credentials": {"username": "postgres", "password": "nextops"},
+      "quick_start": "Expose if needed; connect via psql or a DB client; create DBs/users.",
+      "docs": "https://www.postgresql.org/docs/",
+      "tags": ["database","sql"]
+    },
+    "library/mysql": {
+      "description": "MySQL is a popular open-source relational database.",
+      "credentials": {"username": "root", "password": "example"},
+      "quick_start": "Expose if needed; connect with the mysql client; create DBs/users.",
+      "docs": "https://dev.mysql.com/doc/",
+      "tags": ["database","sql"]
+    },
+    "library/mariadb": {
+      "description": "MariaDB is a community-developed fork of MySQL.",
+      "credentials": {"username": "root", "password": "example"},
+      "quick_start": "Expose if needed; connect with mysql-compatible tools.",
+      "docs": "https://mariadb.com/kb/en/documentation/",
+      "tags": ["database","sql"]
+    },
+    "library/redis": {
+      "description": "Redis is an in-memory data store used as a database, cache and message broker.",
+      "quick_start": "Expose 6379; set a password via REDIS_PASSWORD or command config if needed.",
+      "docs": "https://redis.io/docs/",
+      "tags": ["database","cache","kv"]
+    },
+    "mongo": {
+      "description": "MongoDB is a document database for modern applications.",
+      "quick_start": "Expose 27017; create users/DBs as required; consider volumes for data.",
+      "docs": "https://www.mongodb.com/docs/",
+      "tags": ["database","nosql"]
+    },
+    "clickhouse/clickhouse-server": {
+      "description": "ClickHouse is a fast open-source column-oriented OLAP database.",
+      "quick_start": "Expose 8123 (HTTP) and 9000 (native) as needed; create DBs and tables.",
+      "docs": "https://clickhouse.com/docs/",
+      "tags": ["database","olap"]
+    },
+    "influxdb": {
+      "description": "InfluxDB is a time series database designed for metrics and events.",
+      "quick_start": "Expose 8086; create an org/bucket/token on first run.",
+      "docs": "https://docs.influxdata.com/influxdb/",
+      "tags": ["database","timeseries"]
+    },
+    "dpage/pgadmin4": {
+      "description": "pgAdmin is a web-based administration tool for PostgreSQL.",
+      "quick_start": "Expose UI port; set default email/password via env; add servers to manage.",
+      "docs": "https://www.pgadmin.org/docs/",
+      "tags": ["database","tools","ui"]
+    },
+    "adminer": {
+      "description": "Adminer is a lightweight database management tool (single PHP file).",
+      "quick_start": "Expose 8080 (or chosen); select DB driver and connect.",
+      "docs": "https://www.adminer.org/",
+      "tags": ["database","tools","ui"]
+    },
+    "phpmyadmin": {
+      "description": "phpMyAdmin is a web interface for MySQL and MariaDB.",
+      "quick_start": "Expose 80/8080; set PMA_HOST to your DB host; login with DB creds.",
+      "docs": "https://docs.phpmyadmin.net/",
+      "tags": ["database","tools","ui"]
+    },
+
+    "minio/minio": {
+      "description": "MinIO provides S3-compatible object storage.",
+      "quick_start": "Expose 9000 (S3) and 9001 (console); set access keys via env.",
+      "docs": "https://min.io/docs/",
+      "tags": ["storage","s3"]
+    },
+    "sonatype/nexus3": {
+      "description": "Nexus Repository Manager stores build artifacts and container images.",
+      "quick_start": "Expose 8081; retrieve initial admin password from the data volume file.",
+      "docs": "https://help.sonatype.com/repomanager3",
+      "tags": ["artifacts","registry","ci"]
+    },
+    "sonarqube": {
+      "description": "SonarQube performs continuous code quality and security analysis.",
+      "quick_start": "Expose 9000; login admin/admin on first run, then change password.",
+      "docs": "https://docs.sonarsource.com/sonarqube/",
+      "tags": ["quality","security","ci"]
+    },
+
+    "jenkins/jenkins": {
+      "description": "Jenkins is an automation server for CI/CD.",
+      "quick_start": "Expose 8080; read the initial admin password from /var/jenkins_home/secrets/.",
+      "docs": "https://www.jenkins.io/doc/",
+      "tags": ["ci","automation"]
+    },
+    "gitea/gitea": {
+      "description": "Gitea is a lightweight self-hosted Git service with a web UI.",
+      "quick_start": "Expose 3000 (HTTP) and 22 (SSH) if needed; run setup wizard.",
+      "docs": "https://docs.gitea.com/",
+      "tags": ["git","scm"]
+    },
+    "gitlab/gitlab-ce": {
+      "description": "GitLab CE is a full DevOps platform (git, CI/CD, registry, etc.).",
+      "quick_start": "Expose HTTP/SSH/registry ports; initial root password can be read from logs or file.",
+      "docs": "https://docs.gitlab.com/",
+      "tags": ["git","ci","devops"]
+    },
+
+    "quay.io/keycloak/keycloak": {
+      "description": "Keycloak provides SSO and identity/access management.",
+      "quick_start": "Run in dev mode for quick start; open admin console, create realm/clients/users.",
+      "docs": "https://www.keycloak.org/documentation",
+      "tags": ["auth","iam","sso"]
+    },
+    "vaultwarden/server": {
+      "description": "Vaultwarden is a lightweight Bitwarden-compatible password manager server.",
+      "quick_start": "Expose the web UI; set admin token if enabling admin panel.",
+      "docs": "https://github.com/dani-garcia/vaultwarden/wiki",
+      "tags": ["passwords","security"]
+    },
+    "hashicorp/vault": {
+      "description": "HashiCorp Vault manages secrets, encryption, and identity-based access.",
+      "quick_start": "Run dev mode for demo; otherwise initialize and unseal before use.",
+      "docs": "https://developer.hashicorp.com/vault/docs",
+      "tags": ["secrets","security"]
+    },
+
+    "getmeili/meilisearch": {
+      "description": "Meilisearch is a fast, relevance-focused search engine with a simple HTTP API.",
+      "quick_start": "Expose 7700; set MEILI_MASTER_KEY; create an index and add documents.",
+      "docs": "https://www.meilisearch.com/docs",
+      "tags": ["search"]
+    },
+    "typesense/typesense": {
+      "description": "Typesense is an open-source, typo-tolerant search engine.",
+      "quick_start": "Expose 8108; set TYPESENSE_API_KEY; create a collection and index documents.",
+      "docs": "https://typesense.org/docs/",
+      "tags": ["search"]
+    },
+
+    "opensearchproject/opensearch": {
+      "description": "OpenSearch is a community-driven, open-source search and analytics suite.",
+      "quick_start": "Expose 9200/9600; set cluster settings and security as needed.",
+      "docs": "https://opensearch.org/docs/",
+      "tags": ["search","analytics"]
+    },
+    "opensearchproject/opensearch-dashboards": {
+      "description": "OpenSearch Dashboards is the visualization UI for OpenSearch.",
+      "quick_start": "Expose 5601; point it at your OpenSearch cluster.",
+      "docs": "https://opensearch.org/docs/",
+      "tags": ["search","analytics","ui"]
+    },
+
+    "redis/redis-stack": {
+      "description": "Redis Stack bundles Redis with modules for search, JSON, and more.",
+      "quick_start": "Expose database and UI ports; connect with Redis clients or use the browser UI.",
+      "docs": "https://redis.io/docs/latest/stack/",
+      "tags": ["database","cache","search"]
+    },
+    "n8n/n8n": {
+      "description": "n8n is a workflow automation tool with a visual editor.",
+      "quick_start": "Expose the web UI; create a user and start building workflows.",
+      "docs": "https://docs.n8n.io/",
+      "tags": ["automation","workflows"]
+    },
+    "metabase/metabase": {
+      "description": "Metabase is a simple, open-source BI tool for dashboards and analytics.",
+      "quick_start": "Expose 3000; complete setup wizard, connect a database, build dashboards.",
+      "docs": "https://www.metabase.com/docs/",
+      "tags": ["bi","analytics","dashboards"]
+    },
+
+    "bitnami/minio": {
+      "description": "Bitnami-packaged MinIO for S3-compatible object storage.",
+      "quick_start": "Expose 9000/9001; set credentials via env; open console.",
+      "docs": "https://bitnami.com/stack/minio/containers",
+      "tags": ["storage","s3"]
+    },
+    "bitnami/wordpress": {
+      "description": "WordPress is a popular CMS; this container includes required services.",
+      "quick_start": "Expose web port; follow setup; persistent volumes recommended.",
+      "docs": "https://bitnami.com/stack/wordpress/containers",
+      "tags": ["cms","web"]
+    }
+  }
+}
+
